@@ -1,0 +1,19 @@
+{
+  "alias": "scraper.phar",
+  "chmod": "0755",
+  "directories": ["src"],
+  "files": [
+    "LICENSE"
+  ],
+  "finder": [
+    {
+      "name": "*.php",
+      "exclude": ["Tests"],
+      "in": "vendor"
+    }
+  ],
+  "git-version": "2.0.0",
+  "main": "bin/scraper.php",
+  "output": "scraper",
+  "stub": true
+}
