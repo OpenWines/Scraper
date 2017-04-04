@@ -1,6 +1,30 @@
 {
+    "name": "openwines/open-data-scraper",
+    "type": "project",
+    "description": "OpenWines Open Data Scraper",
+    "keywords": ["open-data", "scraper", "openwines"],
+    "homepage": "http://scraper.openwines.eu",
+    "license": "OSL 3.0",
+    "authors": [
+        {
+            "name": "Ronan Guilloux",
+            "email": "ronan.guilloux@gmail.com"
+        }
+    ],
     "require": {
+        "php": ">=7.0.0",
         "symfony/console": "^3.2",
-        "symfony/config": "^3.2"
+        "symfony/config": "^3.2",
+        "symfony/dependency-injection": "3.2",
+        "pimple/pimple": "^3.0"
+    },
+    "autoload": {
+        "psr-4": { "OpenWines\\": "src" }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }
