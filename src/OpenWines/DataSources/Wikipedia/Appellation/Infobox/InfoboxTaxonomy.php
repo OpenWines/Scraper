@@ -2,6 +2,7 @@
 
 namespace OpenWines\DataSources\Wikipedia\Appellation\Infobox;
 
+use League\Csv\Reader;
 use OpenWines\DataSources\Helper\HttpTool;
 use Symfony\Component\Yaml\Yaml;
 
@@ -21,16 +22,17 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
     protected $lang;
 
     const API_URL = 'wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=xmlfm&rvsection=0&titles=';
+    const AOCs = __DIR__ . '/../Resources/Appellations/Sources/FR_AOC.csv';
 
     public function __construct($model= 'UNKNOWN', $name = 'UNKNOWN', $lang = 'fr')
     {
         $this->model = $model;
         $this->name = $name;
         $this->lang = $lang;
-        $AOCs = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/Appellations/Sources/FR_AOC.yml'));
-        $this->sources = array_merge(
-            $AOCs['appellations']
-        );
+        $reader = Reader::createFromPath(self::AOCs);
+        foreach ($reader as $offset => $record) {
+            $this->sources[$record[0]] = $record[1];
+        }
     }
 
     /**
@@ -80,6 +82,10 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
         if(!empty($this->name)) {
             $url = $this->sources[$this->name];
             $rows[$url] = HttpTool::getSSLPage( $this->getScrapableURL($url));
+        } else {
+            foreach ($this->sources as $name=>$url) {
+                $rows[$url] = HttpTool::getSSLPage( $this->getScrapableURL($url));
+            }
         }
         foreach ($rows as $url=>$content) {
             foreach ($columns as $j=>$key) {

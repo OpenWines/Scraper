@@ -16,11 +16,19 @@ based on [Symfony2][1] components.
 
 ## Usage
 
+Command option examples:
+
 ```bash
-bin/scraper appellation muscadet > muscadet.csv
+bin/scraper appellation > examples/appellations.csv  
+bin/scraper appellation muscadet > examples/muscadet.csv
 ```
 
-Output example: [muscadet.csv](examples/muscadet.csv)
+Output examples: 
+
+- [muscadet.csv](examples/muscadet.csv)
+- [appellations.csv](examples/appellations.csv)
+
+These commands use a [CSV list of appellations Wikipedia URL](src/OpenWines/DataSources/Wikipedia/Appellation/Resources/Appellations/Sources/FR_AOC.csv)
 
 Other available commands:
 
