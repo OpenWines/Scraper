@@ -25,10 +25,12 @@ bin/scraper appellation muscadet > examples/muscadet.csv
 
 Output examples: 
 
-- [muscadet.csv](examples/muscadet.csv)
-- [appellations.csv](examples/appellations.csv)
+ - [muscadet.csv](examples/muscadet.csv)
+ - [appellations.csv](examples/appellations.csv)
 
-These commands use a [CSV list of appellations Wikipedia URL](src/OpenWines/DataSources/Wikipedia/Appellation/Resources/Appellations/Sources/FR_AOC.csv)
+These commands use 
+ - an [infobox definition from Wikipedia](config/Resources/Appellations/InfoboxModel/FR_Infobox_Region_viticole.yml) found [here](https://fr.wikipedia.org/wiki/Mod%C3%A8le:Infobox_R%C3%A9gion_viticole)
+ - a [CSV list of appellations Wikipedia URL](config/Sources/FR_AOC.csv)
 
 Other available commands:
 
@@ -43,7 +45,8 @@ bin/scraper appellation muscadet
 
  - Create your new commands in `src/OpenWines/Command/`
  - Add your new commands to `bin/`
-
+ - Add new Wikipedia infobox models [here](config/Resources/Appellations/InfoboxModel/)
+ - Add more URLs to scrape [here](config/Sources/) (need to make it a parameter, no done already)
 
 ## Creating a PHAR
 

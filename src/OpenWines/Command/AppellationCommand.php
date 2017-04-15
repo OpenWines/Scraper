@@ -45,7 +45,7 @@ class AppellationCommand extends Command
 
         $app = $this->getApplication()->getService('console');
         $taxonomy = new InfoboxTaxonomy(
-             __DIR__ . '/../DataSources/Wikipedia/Appellation/Resources/Appellations/InfoboxModel/FR_Infobox_Region_viticole.yml',
+             __DIR__ . '/../../../config/Resources/Appellations/InfoboxModel/FR_Infobox_Region_viticole.yml',
             $input->getArgument('name'),
             $input->getArgument('lang')
             );

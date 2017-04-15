@@ -22,7 +22,7 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
     protected $lang;
 
     const API_URL = 'wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=xmlfm&rvsection=0&titles=';
-    const AOCs = __DIR__ . '/../Resources/Appellations/Sources/FR_AOC.csv';
+    const AOCs = __DIR__ . '/../../../../../../config/Sources/FR_AOC.csv';
 
     public function __construct($model= 'UNKNOWN', $name = 'UNKNOWN', $lang = 'fr')
     {
