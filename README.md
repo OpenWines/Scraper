@@ -17,20 +17,25 @@ based on [Symfony2][1] components.
 ## Usage
 
 ```bash
-bin/scraper appellation muscadet
 bin/scraper appellation muscadet > muscadet.csv
+```
+
+Output example: [muscadet.csv](examples/muscadet.csv)
+
+Other available commands:
+
+```bash
+bin/scraper 
+bin/scraper info
+bin/scraper help appellation
+bin/scraper appellation muscadet
 ```
 
 ## Hack
 
  - Create your new commands in `src/OpenWines/Command/`
  - Add your new commands to `bin/`
- - Run the commands as:
-```sh
-./bin/scraper 
-./bin/scraper info
-./bin/scraper help appellation
-```
+
 
 ## Creating a PHAR
 
