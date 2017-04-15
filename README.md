@@ -4,17 +4,32 @@ OpenWines Open-Data scraper
 OpenWines scraper, is a simple Command Line Interface to scrap 100% genuine open-data,
 in order to generate fixtures dataset for OpenWines Products Information Manager.
 
-It's a simple command line application, heavily inspired by [Cilex](https://github.com/Cilex/Cilex) to develop simple tools
-based on [Symfony2][1] components.
+## What is does
 
-## Installation
+It scraps Wikipedia, and put nice data in a CSV, like this [list of wine appellations](examples/appellations.csv).
+
+It turns these infoboxes:
+
+![infobox](examples/infobox.png)
+
+into this [26 columns CSV file](examples/appellations.csv):
+
+![csv](examples/csv.png)
+
+## What is is
+
+It's a simple command line application, heavily inspired by [Cilex](https://github.com/Cilex/Cilex).
+It parses Wikipedia infoboxes – the right block of structured data in a wikipedia page – and put these templated data in a CSV file.
+It uses an [infobox definition from Wikipedia](config/Resources/Appellations/InfoboxModel/FR_Infobox_Region_viticole.yml) found [here](https://fr.wikipedia.org/wiki/Mod%C3%A8le:Infobox_R%C3%A9gion_viticole) and a [CSV list of appellations from Wikipedia](config/Sources/FR_AOC.csv).
+
+## How to install it
 
  1. `git clone` _this_ repository.
  2. Download composer: `curl -s https://getcomposer.org/installer | php`
  3. Install dependencies: `php composer.phar install`
 
 
-## Usage
+## How to use it
 
 Command option examples:
 
@@ -29,8 +44,9 @@ Output examples:
  - [appellations.csv](examples/appellations.csv)
 
 These commands use 
+
  - an [infobox definition from Wikipedia](config/Resources/Appellations/InfoboxModel/FR_Infobox_Region_viticole.yml) found [here](https://fr.wikipedia.org/wiki/Mod%C3%A8le:Infobox_R%C3%A9gion_viticole)
- - a [CSV list of appellations Wikipedia URL](config/Sources/FR_AOC.csv)
+ - a [CSV list of appellations from Wikipedia](config/Sources/FR_AOC.csv)
 
 Other available commands:
 
@@ -41,14 +57,14 @@ bin/scraper help appellation
 bin/scraper appellation muscadet
 ```
 
-## Hack
+## How to hack it
 
  - Create your new commands in `src/OpenWines/Command/`
  - Add your new commands to `bin/`
  - Add new Wikipedia infobox models [here](config/Resources/Appellations/InfoboxModel/)
  - Add more URLs to scrape [here](config/Sources/) (need to make it a parameter, no done already)
 
-## Creating a PHAR
+## How to package it (in a PHAR)
 
  - Download and install [box][5]:
 ```sh
@@ -67,7 +83,7 @@ box build
 ```
  - enjoy a lot.
 
-## License
+## How to reuse it
 
 OpenWines Scraper is licensed under the [Open Software License (OSL 3.0)](http://opensource.org/licenses/osl-3.0.php)
 
