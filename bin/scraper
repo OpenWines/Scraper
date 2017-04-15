@@ -4,8 +4,4 @@ if (!$loader = include __DIR__ . '/../vendor/autoload.php') {
     die('You must set up the project dependencies.');
 }
 $scraper = new \OpenWines\Apps\Scraper('Scraper', '1.0.0');
-$scraper->command(new OpenWines\Command\InfoCommand());
-$scraper->command('foo', function ($input, $output) {
-    $output->writeln('Example output');
-});
 $scraper->run();

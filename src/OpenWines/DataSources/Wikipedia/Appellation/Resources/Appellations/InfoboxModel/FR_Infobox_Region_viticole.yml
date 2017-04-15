@@ -1,0 +1,28 @@
+# https://fr.wikipedia.org/wiki/Vaucluse_(IGP)
+keys:
+    - nom
+    - charte
+    - image
+    - taille image
+    - alternative
+    - légende
+    - appellations
+    - typeappellation
+    - année
+    - pays
+    - région-mère
+    - similaire
+    - sous-régions
+    - localisation
+    - saison
+    - climat
+    - jourssoleil
+    - sol
+    - superficietotale
+    - superficieplantée
+    - exploitations
+    - cépages
+    - vins
+    - volproduction
+    - densité
+    - rendement

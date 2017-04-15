@@ -13,7 +13,15 @@ based on [Symfony2][1] components.
  2. Download composer: `curl -s https://getcomposer.org/installer | php`
  3. Install dependencies: `php composer.phar install`
 
+
 ## Usage
+
+```bash
+bin/scraper appellation muscadet
+bin/scraper appellation muscadet > muscadet.csv
+```
+
+## Hack
 
  - Create your new commands in `src/OpenWines/Command/`
  - Add your new commands to `bin/`
@@ -21,6 +29,7 @@ based on [Symfony2][1] components.
 ```sh
 ./bin/scraper 
 ./bin/scraper info
+./bin/scraper help appellation
 ```
 
 ## Creating a PHAR

@@ -1,6 +1,8 @@
 <?php
 
 namespace OpenWines\Apps;
+use OpenWines\Command\AppellationCommand;
+use OpenWines\Command\InfoCommand;
 
 /**
  * Scraper
@@ -11,5 +13,13 @@ namespace OpenWines\Apps;
  */
 class Scraper extends Application
 {
-
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct($name, $version = null, array $values = array())
+    {
+        parent::__construct($name, $version, $values);
+        $this->command(new InfoCommand());
+        $this->command(new AppellationCommand());
+    }
 }

@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Cilex framework.
- *
- * (c) Mike van Riel <mike.vanriel@naenius.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace OpenWines\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,6 +8,10 @@ use OpenWines\Provider\Console\Command;
 
 /**
  * Example command for testing purposes.
+ *
+ * @author    Ronan Guilloux <ronan.guilloux@gmail.com>
+ * @copyright 2017 OpenWines (http://scraper.openwines.eu)
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 class InfoCommand extends Command
 {

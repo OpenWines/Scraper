@@ -23,7 +23,7 @@ abstract class Command extends BaseCommand
     /**
      * Returns the application container.
      *
-     * @return \OpenWines\Application
+     * @return \OpenWines\Apps\Application
      */
     public function getContainer()
     {

@@ -3,7 +3,6 @@
 namespace OpenWines\Provider;
 
 use Pimple\Container;
-use OpenWines\Provider\Console\ContainerAwareApplication;
 
 /**
  * @author    Ronan Guilloux <ronan.guilloux@gmail.com>

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenWines\Provider\Console;
+namespace OpenWines\Provider;
 
 use Pimple\Container;
 use Symfony\Component\Console\Application;

@@ -1,0 +1,9 @@
+appellations:
+    muscadet: https://fr.wikipedia.org/wiki/Muscadet_(AOC)
+    cpteaux: https://fr.wikipedia.org/wiki/Muscadet-coteaux-de-la-loire
+    grandlieu: https://fr.wikipedia.org/wiki/Muscadet-c%C3%B4tes-de-grandlieu
+    sevre: https://fr.wikipedia.org/wiki/Muscadet-s%C3%A8vre-et-maine
+    coteaux2: http://127.0.0.1:8080/Muscadet-coteaux-de-la-loire.htm
+    grandlieu2: http://127.0.0.1:8080/Muscadet-co%CC%82tes-de-grandlieu.htm
+    sevre2: http://127.0.0.1:8080/Muscadet-se%CC%80vre-et-maine.htm
+    muscadet2: http://127.0.0.1:8080/Muscadet_(AOC).htm

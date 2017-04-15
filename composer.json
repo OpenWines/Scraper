@@ -16,7 +16,10 @@
         "symfony/console": "^3.2",
         "symfony/config": "^3.2",
         "symfony/dependency-injection": "3.2",
-        "pimple/pimple": "^3.0"
+        "pimple/pimple": "^3.0",
+        "symfony/yaml": "^3.3@dev",
+        "symfony/dom-crawler": "^3.3@dev",
+        "league/csv": "^9.0@dev"
     },
     "autoload": {
         "psr-4": { "OpenWines\\": "src" }
