@@ -53,14 +53,10 @@ class AppellationCommand extends Command
 
         $formatter = (new CharsetConverter())
             ->outputEncoding('utf-8')
-            //->inputEncoding('iso-8859-1')
         ;
         $writer = Writer::createFromFileObject(new \SplTempFileObject());
         $writer->addFormatter($formatter);
-        $writer->setEnclosure('"');
-        $writer->setDelimiter(self::CSV_DELIMITER);
         $writer->insertAll($appellation);
-
         $output->writeln((string)$writer);
     }
 }
