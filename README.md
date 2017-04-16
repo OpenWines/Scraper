@@ -6,15 +6,15 @@ in order to generate fixtures dataset for OpenWines Products Information Manager
 
 ## What is does
 
-It scraps Wikipedia, and put nice data in a CSV, like this [list of wine appellations](examples/appellations.csv).
+It scraps Wikipedia, and put nice data in a CSV, like this [list of wine appellations](output/appellations.csv).
 
 It turns these infoboxes:
 
-![infobox](examples/infobox.png)
+![infobox](output/infobox.png)
 
-into this [26 columns CSV file](examples/appellations.csv):
+into this [26 columns CSV file](output/appellations.csv):
 
-![csv](examples/csv.png)
+![csv](output/csv.png)
 
 ## What is is
 
@@ -34,14 +34,14 @@ It uses an [infobox definition from Wikipedia](config/Resources/Appellations/Inf
 Command option examples:
 
 ```bash
-bin/scraper appellation > examples/appellations.csv  
-bin/scraper appellation muscadet > examples/muscadet.csv
+bin/scraper appellation > output/appellations.csv  
+bin/scraper appellation muscadet > output/muscadet.csv
 ```
 
 Output examples: 
 
- - [muscadet.csv](examples/muscadet.csv)
- - [appellations.csv](examples/appellations.csv)
+ - (all listed) [appellations.csv](output/appellations.csv)
+ - (1 appellation:) [muscadet.csv](output/muscadet.csv)
 
 These commands use 
 
