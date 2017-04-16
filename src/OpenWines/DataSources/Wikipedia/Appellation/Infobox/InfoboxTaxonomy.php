@@ -92,7 +92,8 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
                 $values[$url][$key] = "";
                 if (preg_match("/(\\|\\s\\b$key.*)/", $content, $matches)) {
                     $value = mb_convert_encoding($matches[0], 'ISO-8859-1', 'HTML-ENTITIES');
-                    $value = str_replace('  ', '', str_replace(["| $key", '=', '[', ']', '|', '{', '}'], ' ', $value));
+                    $unwanted = ["| $key", 'unité|', 'formatnum:', '=', '[', ']', '|', '{', '}'];
+                    $value = str_replace('  ', '', str_replace($unwanted, ' ', $value));
                     $regex = "@(https?://([-\\w\\.]+[-\\w])+(:\\d+)?(/([\\w/_\\.#-]*(\\?\\S+)?[^\\.\\s])?).*$)@"; // no URLs
                     $value = preg_replace($regex, ' ', $value);
                     $values[$url][$key] = trim(strip_tags(html_entity_decode($value, ENT_NOQUOTES)));
