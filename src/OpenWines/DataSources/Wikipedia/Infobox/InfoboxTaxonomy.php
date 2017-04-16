@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenWines\DataSources\Wikipedia\Appellation\Infobox;
+namespace OpenWines\DataSources\Wikipedia\Infobox;
 
 use League\Csv\Reader;
 use OpenWines\DataSources\Helper\HttpTool;
@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Yaml;
  * @copyright 2017 OpenWines (http://scraper.openwines.eu)
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
-class InfoboxTaxonomy implements InfoBoxModelInterface
+abstract class InfoboxTaxonomy implements InfoBoxModelInterface
 {
 
     protected $name;
@@ -22,14 +22,13 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
     protected $lang;
 
     const API_URL = 'wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=xmlfm&rvsection=0&titles=';
-    const AOCs = __DIR__ . '/../../../../../../config/sources/FR_AOC.csv';
 
-    public function __construct($model= 'UNKNOWN', $name = 'UNKNOWN', $lang = 'fr')
+    public function __construct($filePath, $model= 'UNKNOWN', $name = 'UNKNOWN', $lang = 'fr')
     {
         $this->model = $model;
         $this->name = $name;
         $this->lang = $lang;
-        $reader = Reader::createFromPath(self::AOCs);
+        $reader = Reader::createFromPath($filePath);
         foreach ($reader as $offset => $record) {
             $this->sources[$record[1]] = $record[2]; // struct: [subregion,appellation_code,appellation_url]
         }
@@ -62,12 +61,6 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
         return $url;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getInfoBoxRawContent($url)
-    {
-    }
 
     /**
      * {@inheritdoc}
@@ -89,15 +82,8 @@ class InfoboxTaxonomy implements InfoBoxModelInterface
         }
         foreach ($rows as $url=>$content) {
             foreach ($columns as $j=>$key) {
-                $values[$url][$key] = "";
-                if (preg_match("/(\\|\\s\\b$key.*)/", $content, $matches)) {
-                    $value = mb_convert_encoding($matches[0], 'ISO-8859-1', 'HTML-ENTITIES');
-                    $unwanted = ["| $key", 'unité|', 'formatnum:', '=', '[', ']', '|', '{', '}'];
-                    $value = str_replace('  ', '', str_replace($unwanted, ' ', $value));
-                    $regex = "@(https?://([-\\w\\.]+[-\\w])+(:\\d+)?(/([\\w/_\\.#-]*(\\?\\S+)?[^\\.\\s])?).*$)@"; // no URLs
-                    $value = preg_replace($regex, ' ', $value);
-                    $values[$url][$key] = trim(strip_tags(html_entity_decode($value, ENT_NOQUOTES)));
-                }
+                $values[$url][$key] = $this->getAttribute($content, $key);
+
             }
             $values[$url]['wikipedia_url'] = $url;
             $values[$url]['wikipedia_api'] =  $this->getScrapableURL($url);

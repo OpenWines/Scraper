@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenWines\DataSources\Wikipedia\Appellation\Infobox;
+namespace OpenWines\DataSources\Wikipedia\Infobox;
 
 /**
  * Interface InfoBoxModelInterface
@@ -14,11 +14,12 @@ interface InfoBoxModelInterface
 
     /**
      * InfoBoxModelInterface constructor.
-     * @param string $source Wikipedia URI
+     * @param string $filePath list of URLs
      * @param string $model Infobox model parameters
-     * @param string $lang Wikipedia locale
+     * @param string $name appellation code (optionnal)
+     * @param string $lang Wikipedia locale (optional)
      */
-    public function __construct($source, $model, $lang);
+    public function __construct($filePath, $model, $name, $lang);
 
     /**
      * @return array [key1, key2, keyN]
@@ -30,11 +31,7 @@ interface InfoBoxModelInterface
      */
     public function getConfiguration();
 
-    /**
-     * @param string $url Wikipedia URL
-     * @return string raw infoBox content
-     */
-    public function getInfoBoxRawContent($url);
+    public function getAttribute($content, $key);
 
     /**
      * @return array [key1=>value1, etc.]

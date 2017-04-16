@@ -2,6 +2,7 @@
 
 namespace OpenWines\Apps;
 use OpenWines\Command\AppellationCommand;
+use OpenWines\Command\CepageCommand;
 use OpenWines\Command\InfoCommand;
 
 /**
@@ -21,5 +22,6 @@ class Scraper extends Application
         parent::__construct($name, $version, $values);
         $this->command(new InfoCommand());
         $this->command(new AppellationCommand());
+        $this->command(new CepageCommand());
     }
 }

@@ -31,17 +31,26 @@ It uses an [infobox definition from Wikipedia](config/Resources/Appellations/Inf
 
 ## How to use it
 
-Command option examples:
+For scraping a whole list of wikipedia URLs:
 
 ```bash
 bin/scraper appellation > output/appellations.csv  
+bin/scraper cepage > output/cepages.csv  
+```
+
+For a single entity:
+
+```bash
 bin/scraper appellation muscadet > output/muscadet.csv
+bin/scraper cepage cabernet-sauvignon > output/cabernet-sauvignon.csv
 ```
 
 Output examples: 
 
- - (all listed) [appellations.csv](output/appellations.csv)
+ - (list of all) [appellations.csv](output/appellations.csv)
+ - (list of all) [cepages.csv](output/cepages.csv)
  - (1 appellation:) [muscadet.csv](output/muscadet.csv)
+ - (1 cepage:) [cabernet-sauvignon.csv](output/cabernet-sauvignon.csv)
 
 These commands use 
 

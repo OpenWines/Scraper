@@ -1,0 +1,21 @@
+# https://fr.wikipedia.org/wiki/Mod%C3%A8le:Infobox_C%C3%A9page
+keys:
+    - nom cépage
+    - image
+    - image-desc
+    - nom plus utilisé
+    - nom italien
+    - nom croate
+    - débourrement
+    - floraison
+    - véraison
+    - maturité
+    - port
+    - vigueur
+    - fertilité
+    - taille et mode de conduite
+    - productivité
+    - climatique
+    - pédologique
+    - alcoolique
+    - aromatique
